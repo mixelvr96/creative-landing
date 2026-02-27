@@ -104,8 +104,15 @@ showreelVideo.addEventListener('click', () => {
 // Play/Pause button
 ctrlPlayPause.addEventListener('click', e => {
   e.stopPropagation();
-  if (showreelVideo.paused) { showreelVideo.play(); setShowreelPlaying(true); }
-  else                      { showreelVideo.pause(); setShowreelPlaying(false); }
+  if (showreelVideo.paused) {
+    loadShowreelSrc();
+    showreelVideo.play();
+    showreelPoster.classList.add('hidden');
+    setShowreelPlaying(true);
+  } else {
+    showreelVideo.pause();
+    setShowreelPlaying(false);
+  }
 });
 
 // Progress bar
@@ -260,6 +267,35 @@ videoCards.forEach(card => {
 });
 
 /* ------------------------------------------------------------
+   PLAYABLE AD PREVIEWS — mute audio on load
+   ------------------------------------------------------------ */
+document.querySelectorAll('.icard-preview iframe').forEach(iframe => {
+  iframe.addEventListener('load', () => {
+    try {
+      const win = iframe.contentWindow;
+      const doc = iframe.contentDocument || win.document;
+      // Mute any audio/video elements
+      doc.querySelectorAll('audio, video').forEach(el => {
+        el.muted = true;
+        el.volume = 0;
+      });
+      // Cocos Creator: mute audio engine
+      if (win.cc && win.cc.audioEngine) {
+        win.cc.audioEngine.setVolume(0);
+        win.cc.audioEngine.setMusicVolume(0);
+        win.cc.audioEngine.setEffectsVolume(0);
+      }
+      // Suspend Web Audio context if accessible
+      if (win.AudioContext || win.webkitAudioContext) {
+        const OrigAC = win.AudioContext || win.webkitAudioContext;
+        const ctx = win._audioCtx || (win.cc && win.cc.sys && win.cc.sys._audioCtx);
+        if (ctx && ctx.state !== 'suspended') ctx.suspend();
+      }
+    } catch (e) {}
+  });
+});
+
+/* ------------------------------------------------------------
    INTERACTIVE BANNERS MODAL
    ------------------------------------------------------------ */
 const bannerModal    = document.getElementById('bannerModal');
@@ -285,25 +321,58 @@ function closeModal() {
 
 bannerModalClose.addEventListener('click', closeModal);
 bannerModalBg.addEventListener('click', closeModal);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 /* ------------------------------------------------------------
-   CASES ACCORDION
+   CASES MODAL
    ------------------------------------------------------------ */
-document.querySelectorAll('.case-item').forEach(item => {
-  item.querySelector('.case-head').addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-    // Close all
-    document.querySelectorAll('.case-item').forEach(c => {
-      c.classList.remove('open');
-      c.querySelector('.case-head').setAttribute('aria-expanded', 'false');
-    });
-    // Open clicked (unless was already open)
-    if (!isOpen) {
-      item.classList.add('open');
-      item.querySelector('.case-head').setAttribute('aria-expanded', 'true');
+const caseModal      = document.getElementById('caseModal');
+const caseModalBg    = document.getElementById('caseModalBg');
+const caseModalClose = document.getElementById('caseModalClose');
+const caseModalInner = document.getElementById('caseModalInner');
+
+document.querySelectorAll('.case-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.dataset.case;
+    const content = document.getElementById('caseContent' + id);
+    if (!content) return;
+    caseModalInner.innerHTML = content.innerHTML;
+    caseModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    // Video reveal button
+    const videoBtn = caseModalInner.querySelector('.case-video-btn');
+    if (videoBtn) {
+      videoBtn.addEventListener('click', () => {
+        const src = videoBtn.dataset.src;
+        const video = document.createElement('video');
+        video.src = src;
+        video.controls = true;
+        video.playsinline = true;
+        video.className = 'case-video';
+        videoBtn.closest('.case-video-wrap').replaceChild(video, videoBtn);
+        video.play();
+      });
     }
   });
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+  });
+});
+
+function closeCaseModal() {
+  caseModal.classList.remove('open');
+  // pause video if playing
+  const v = caseModalInner.querySelector('video');
+  if (v) v.pause();
+  caseModalInner.innerHTML = '';
+  document.body.style.overflow = '';
+}
+
+caseModalClose.addEventListener('click', closeCaseModal);
+caseModalBg.addEventListener('click', closeCaseModal);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeModal(); closeCaseModal(); }
 });
 
 /* ------------------------------------------------------------
