@@ -147,11 +147,11 @@ showreelVideo.addEventListener('ended', () => {
 });
 
 /* ------------------------------------------------------------
-   VIDEO CARDS — lazy load + autoplay on scroll
+   VIDEO CARDS — lazy load + play on click, muted by default
    ------------------------------------------------------------ */
 const videoCards = document.querySelectorAll('.video-card:not(.placeholder)');
 
-// Step 1: lazy-load src when card enters viewport (with 300px margin)
+// Lazy-load src when card is near viewport
 const loadObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
@@ -164,52 +164,98 @@ const loadObserver = new IntersectionObserver(entries => {
   });
 }, { rootMargin: '300px' });
 
-// Step 2: autoplay muted when ≥50% visible, pause when leaving
-const playObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    const video = entry.target.querySelector('.vcard-video');
-    if (!video) return;
-    if (entry.isIntersecting && video.src) {
-      video.play().catch(() => {});
-      entry.target.classList.add('playing');
-    } else {
-      video.pause();
-      entry.target.classList.remove('playing');
-    }
-  });
-}, { threshold: 0.5 });
-
 videoCards.forEach(card => {
   loadObserver.observe(card);
-  playObserver.observe(card);
-});
 
-// Click: toggle muted / pause behaviour
-videoCards.forEach(card => {
-  const video = card.querySelector('.vcard-video');
-  if (!video) return;
+  const video   = card.querySelector('.vcard-video');
+  const playBtn = card.querySelector('.vcard-play');
+  if (!video || !playBtn) return;
 
-  card.querySelector('.vcard-play')?.addEventListener('click', e => {
+  // Inject play + pause SVG icons into the play button
+  playBtn.innerHTML = `
+    <svg class="icon-play" width="22" height="22" viewBox="0 0 22 22" fill="currentColor">
+      <polygon points="5,2 18,11 5,20"/>
+    </svg>
+    <svg class="icon-pause" width="22" height="22" viewBox="0 0 22 22" fill="currentColor" style="display:none">
+      <rect x="4" y="2" width="5" height="18" rx="1"/>
+      <rect x="13" y="2" width="5" height="18" rx="1"/>
+    </svg>`;
+
+  // Create mute button and append to card
+  const muteBtn = document.createElement('button');
+  muteBtn.className = 'vcard-mute';
+  muteBtn.setAttribute('aria-label', 'Включить звук');
+  muteBtn.innerHTML = `
+    <svg class="icon-muted" width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M2 5.5v5h2.5L8 13V3L4.5 5.5H2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M11.5 6.5l3 3m0-3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <svg class="icon-sound" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display:none">
+      <path d="M2 5.5v5h2.5L8 13V3L4.5 5.5H2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M10.5 5.5a4 4 0 010 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M12.5 3.5a7 7 0 010 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>`;
+  card.appendChild(muteBtn);
+
+  const iconPlay  = playBtn.querySelector('.icon-play');
+  const iconPause = playBtn.querySelector('.icon-pause');
+  const iconMuted = muteBtn.querySelector('.icon-muted');
+  const iconSound = muteBtn.querySelector('.icon-sound');
+
+  // Stop all other playing videos
+  function stopOthers() {
+    videoCards.forEach(c => {
+      if (c === card) return;
+      const v  = c.querySelector('.vcard-video');
+      const pb = c.querySelector('.vcard-play');
+      const mb = c.querySelector('.vcard-mute');
+      if (!v || v.paused) return;
+      v.pause();
+      c.classList.remove('playing');
+      if (pb) {
+        pb.querySelector('.icon-play').style.display  = '';
+        pb.querySelector('.icon-pause').style.display = 'none';
+      }
+      if (mb) mb.classList.remove('visible');
+    });
+  }
+
+  // Sync mute button icon with video.muted state
+  function updateMuteUI() {
+    const muted = video.muted;
+    iconMuted.style.display = muted ? '' : 'none';
+    iconSound.style.display = muted ? 'none' : '';
+    muteBtn.setAttribute('aria-label', muted ? 'Включить звук' : 'Выключить звук');
+  }
+
+  // Play button: play / pause toggle
+  playBtn.addEventListener('click', e => {
     e.stopPropagation();
-    // load if needed
     if (video.dataset.src && !video.src) { video.src = video.dataset.src; video.load(); }
 
     if (video.paused) {
-      // pause all others
-      document.querySelectorAll('.vcard-video').forEach(v => { if (v !== video) { v.pause(); v.closest('.video-card')?.classList.remove('playing'); } });
-      video.play().catch(() => {});
-      card.classList.add('playing');
+      stopOthers();
+      video.play().then(() => {
+        card.classList.add('playing');
+        iconPlay.style.display  = 'none';
+        iconPause.style.display = '';
+        muteBtn.classList.add('visible');
+        updateMuteUI();
+      }).catch(() => {});
     } else {
       video.pause();
       card.classList.remove('playing');
+      iconPlay.style.display  = '';
+      iconPause.style.display = 'none';
+      muteBtn.classList.remove('visible');
     }
   });
 
-  // Clicking the card (outside the play button) toggles mute
-  card.addEventListener('click', () => {
-    if (video.src && !video.paused) {
-      video.muted = !video.muted;
-    }
+  // Mute button: toggle sound
+  muteBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    video.muted = !video.muted;
+    updateMuteUI();
   });
 });
 
