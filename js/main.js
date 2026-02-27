@@ -442,9 +442,13 @@ contactForm.addEventListener('submit', async e => {
 
   // Validate required fields
   let valid = true;
-  ['fname', 'fcompany', 'femail'].forEach(id => {
+  ['fname', 'fcompany', 'femail', 'fgoals'].forEach(id => {
     const el = document.getElementById(id);
     if (!el.value.trim()) { el.classList.add('err'); valid = false; }
+  });
+  ['fsource', 'fbiztype', 'fbudget'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value) { el.classList.add('err'); valid = false; }
   });
   const emailEl = document.getElementById('femail');
   if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {

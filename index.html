@@ -655,9 +655,9 @@
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="fsource">Как вы о нас узнали</label>
+                <label for="fsource">Как вы о нас узнали <span class="req">*</span></label>
                 <div class="select-wrap">
-                  <select id="fsource" name="how_did_you_hear">
+                  <select id="fsource" name="how_did_you_hear" required>
                     <option value="">Выберите вариант</option>
                     <option value="social">Из социальных сетей</option>
                     <option value="search">По поиску в интернете</option>
@@ -672,9 +672,9 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="fbiztype">Тип бизнеса</label>
+                <label for="fbiztype">Тип бизнеса <span class="req">*</span></label>
                 <div class="select-wrap">
-                  <select id="fbiztype" name="business_type">
+                  <select id="fbiztype" name="business_type" required>
                     <option value="">Выберите вариант</option>
                     <option value="brand">Бренд / Прямой рекламодатель</option>
                     <option value="agency">Агентство / Источник трафика</option>
@@ -687,9 +687,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="fbudget">Рекламный бюджет</label>
+              <label for="fbudget">Рекламный бюджет <span class="req">*</span></label>
               <div class="select-wrap">
-                <select id="fbudget" name="ad_budget">
+                <select id="fbudget" name="ad_budget" required>
                   <option value="">Выберите диапазон</option>
                   <option value="100k-1m">100 000 — 1 000 000 ₽</option>
                   <option value="1m-5m">1 000 000 — 5 000 000 ₽</option>
@@ -702,8 +702,8 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="fgoals">Стратегические цели и планы</label>
-              <textarea id="fgoals" name="strategic_goals" rows="4" placeholder="Расскажите о ваших стратегических целях и планах..."></textarea>
+              <label for="fgoals">Стратегические цели и планы <span class="req">*</span></label>
+              <textarea id="fgoals" name="strategic_goals" rows="4" placeholder="Расскажите о ваших стратегических целях и планах..." required></textarea>
             </div>
             <button type="submit" class="btn-submit">
               <span class="btn-text">Отправить заявку</span>
