@@ -2,3 +2,4 @@
 *.DS_Store
 memory/
 unique_companies.txt
+.env
