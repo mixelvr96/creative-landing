@@ -269,29 +269,52 @@ videoCards.forEach(card => {
 /* ------------------------------------------------------------
    PLAYABLE AD PREVIEWS — mute audio on load
    ------------------------------------------------------------ */
+function muteIframe(iframe) {
+  try {
+    const win = iframe.contentWindow;
+    const doc = iframe.contentDocument || win.document;
+
+    // Mute any audio/video elements
+    doc.querySelectorAll('audio, video').forEach(el => {
+      el.muted = true;
+      el.volume = 0;
+      el.pause();
+    });
+
+    // Cocos Creator: mute audio engine
+    if (win.cc && win.cc.audioEngine) {
+      win.cc.audioEngine.setVolume(0);
+      win.cc.audioEngine.setMusicVolume(0);
+      win.cc.audioEngine.setEffectsVolume(0);
+      win.cc.audioEngine.stopAll();
+    }
+
+    // Suspend all Web Audio contexts
+    if (win.AudioContext || win.webkitAudioContext) {
+      const OrigAC = win.AudioContext || win.webkitAudioContext;
+      // Patch constructor to auto-suspend new contexts
+      if (!win.__acPatched) {
+        win.AudioContext = win.webkitAudioContext = function() {
+          const ctx = new OrigAC();
+          ctx.suspend();
+          return ctx;
+        };
+        win.__acPatched = true;
+      }
+      // Suspend existing context
+      const ctx = win._audioCtx || (win.cc && win.cc.sys && win.cc.sys._audioCtx);
+      if (ctx && ctx.state !== 'suspended') ctx.suspend();
+    }
+  } catch (e) {}
+}
+
 document.querySelectorAll('.icard-preview iframe').forEach(iframe => {
   iframe.addEventListener('load', () => {
-    try {
-      const win = iframe.contentWindow;
-      const doc = iframe.contentDocument || win.document;
-      // Mute any audio/video elements
-      doc.querySelectorAll('audio, video').forEach(el => {
-        el.muted = true;
-        el.volume = 0;
-      });
-      // Cocos Creator: mute audio engine
-      if (win.cc && win.cc.audioEngine) {
-        win.cc.audioEngine.setVolume(0);
-        win.cc.audioEngine.setMusicVolume(0);
-        win.cc.audioEngine.setEffectsVolume(0);
-      }
-      // Suspend Web Audio context if accessible
-      if (win.AudioContext || win.webkitAudioContext) {
-        const OrigAC = win.AudioContext || win.webkitAudioContext;
-        const ctx = win._audioCtx || (win.cc && win.cc.sys && win.cc.sys._audioCtx);
-        if (ctx && ctx.state !== 'suspended') ctx.suspend();
-      }
-    } catch (e) {}
+    // Mute immediately, then re-check several times for late-initializing audio
+    muteIframe(iframe);
+    [100, 500, 1000, 2000, 4000].forEach(delay => {
+      setTimeout(() => muteIframe(iframe), delay);
+    });
   });
 });
 
@@ -474,8 +497,8 @@ contactForm.addEventListener('submit', async e => {
      Replace PORTAL_ID and FORM_ID after creating the form in HubSpot.
      Field names must match HubSpot internal property names.
      ---------------------------------------------------------------- */
-  const PORTAL_ID = 'YOUR_PORTAL_ID';   // e.g. '12345678'
-  const FORM_ID   = 'YOUR_FORM_ID';     // e.g. 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+  const PORTAL_ID = '5289299';
+  const FORM_ID   = '6e6fcdee-bbe1-4fc0-841a-04f1fa4700ba';
 
   const fd = new FormData(contactForm);
   const fields = [];
@@ -484,10 +507,10 @@ contactForm.addEventListener('submit', async e => {
     firstname:        'firstname',
     company:          'company',
     email:            'email',
-    how_did_you_hear: 'how_did_you_hear_about_us',
-    business_type:    'type_of_business',
-    ad_budget:        'advertising_budget',
-    strategic_goals:  'strategic_goals_and_plans',
+    how_did_you_hear: 'source_of_lead',
+    business_type:    'business_type',
+    ad_budget:        'approximate_budget',
+    strategic_goals:  'message',
   };
 
   for (const [key, value] of fd.entries()) {
@@ -495,6 +518,7 @@ contactForm.addEventListener('submit', async e => {
       fields.push({ name: mapping[key], value });
     }
   }
+  fields.push({ name: 'service_requested', value: 'Creative & Production' });
 
   const payload = {
     fields,
