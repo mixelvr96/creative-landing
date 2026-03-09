@@ -27,7 +27,7 @@
       <nav class="main-nav" aria-label="Основная навигация">
         <ul>
           <li><a href="#ugc">UGC</a></li>
-          <li><a href="#ai">ИИ-генерация</a></li>
+          <li><a href="#ai">ИИ-креативы</a></li>
           <li><a href="#motion">Моушен</a></li>
           <li><a href="#banners">Баннеры</a></li>
           <li><a href="#interactive">Интерактив</a></li>
@@ -45,7 +45,7 @@
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <ul>
       <li><a href="#ugc">UGC</a></li>
-      <li><a href="#ai">ИИ-генерация</a></li>
+      <li><a href="#ai">ИИ-креативы</a></li>
       <li><a href="#motion">Моушен</a></li>
       <li><a href="#banners">Баннеры</a></li>
       <li><a href="#interactive">Интерактив</a></li>
@@ -91,7 +91,8 @@
       <div class="showreel-wrap" id="showreelWrap">
         <video class="showreel-video" id="showreelVideo"
                preload="none" playsinline
-               data-src="Showreel.mp4">
+               data-src="Showreel.mp4"
+               poster="showreel-poster.jpg">
         </video>
         <div class="showreel-poster" id="showreelPoster">
           <button class="showreel-play-btn" id="showreelPlayBtn" aria-label="Смотреть Showreel">
@@ -146,7 +147,7 @@
         <a href="#ai" class="nav-cell" data-accent="purple">
           <span class="nav-num">02</span>
           <div class="nav-cell-body">
-            <h3>ИИ-генерация</h3>
+            <h3>ИИ-креативы</h3>
           </div>
           <span class="nav-arrow" aria-hidden="true">↗</span>
         </a>
@@ -210,7 +211,7 @@
       </div>
       <div class="videos-grid col-4">
         <div class="video-card vertical reveal">
-          <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок UGC Видео_Вертикаль/Банки.mp4"></video>
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок UGC Видео_Вертикаль/Банки_NEW.mp4"></video>
           <div class="vcard-overlay">
             <button class="vcard-play" aria-label="Воспроизвести">
               <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
@@ -228,7 +229,7 @@
           <div class="vcard-label">Mamba</div>
         </div>
         <div class="video-card vertical reveal">
-          <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок UGC Видео_Вертикаль/Ситидрайв 1080x1920.mp4"></video>
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок UGC Видео_Вертикаль/Ситидрайв NEW.mp4"></video>
           <div class="vcard-overlay">
             <button class="vcard-play" aria-label="Воспроизвести">
               <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
@@ -263,13 +264,13 @@
       </div>
       <div class="videos-grid col-4">
         <div class="video-card vertical reveal">
-          <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок ИИ Видео_Вертикаль/Eduson_2_4x5.mp4"></video>
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок ИИ Видео_Вертикаль/Eduson_2_NEW.mp4"></video>
           <div class="vcard-overlay">
             <button class="vcard-play" aria-label="Воспроизвести">
               <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
             </button>
           </div>
-          <div class="vcard-label">Eduson</div>
+          <div class="vcard-label">Eduson Academy</div>
         </div>
         <div class="video-card vertical reveal">
           <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок ИИ Видео_Вертикаль/Пироги.mp4"></video>
@@ -278,7 +279,7 @@
               <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
             </button>
           </div>
-          <div class="vcard-label">Пироги</div>
+          <div class="vcard-label">Пироги №1</div>
         </div>
         <div class="video-card vertical reveal">
           <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок ИИ Видео_Вертикаль/Galaxy_1.mp4"></video>
@@ -287,18 +288,16 @@
               <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
             </button>
           </div>
-          <div class="vcard-label">Galaxy</div>
+          <div class="vcard-label">Galaxy Chat</div>
         </div>
-        <div class="video-card vertical placeholder reveal">
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок ИИ Видео_Вертикаль/Ситидрайв_2_NEW.mp4"></video>
           <div class="vcard-overlay">
-            <div class="placeholder-inner">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                <circle cx="20" cy="20" r="18" stroke="#7721EC" stroke-width="1.5"/>
-                <path d="M20 11v18M11 20h18" stroke="#7721EC" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-              <span>Скоро</span>
-            </div>
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
           </div>
+          <div class="vcard-label">Ситидрайв</div>
         </div>
       </div>
     </div>
@@ -327,7 +326,7 @@
           <div class="vcard-label">Fitomarket</div>
         </div>
         <div class="video-card vertical reveal">
-          <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок Моушен Видео_Вертикаль/PUBG_Gameplay_15sec_1080x1920.mp4"></video>
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок Моушен Видео_Вертикаль/PUBG_Gameplay_15sec_NEW.mp4"></video>
           <div class="vcard-overlay">
             <button class="vcard-play" aria-label="Воспроизвести">
               <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
@@ -345,7 +344,7 @@
           <div class="vcard-label">Столото</div>
         </div>
         <div class="video-card vertical contained reveal">
-          <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок Моушен Видео_Вертикаль/bankiros_1080x1080.mp4"></video>
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="Блок Моушен Видео_Вертикаль/Bankiros_2_NEW.mp4"></video>
           <div class="vcard-overlay">
             <button class="vcard-play" aria-label="Воспроизвести">
               <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
@@ -371,19 +370,19 @@
       </div>
       <div class="banners-grid reveal">
         <div class="banner-card">
-          <img src="Статические баннеры/eduson.png" alt="Баннер Eduson Academy" loading="lazy">
+          <img src="Статические баннеры/Eduson_NEW.png" alt="Баннер Eduson Academy" loading="lazy">
           <div class="banner-label">Eduson Academy</div>
         </div>
         <div class="banner-card">
-          <img src="Статические баннеры/банки.png" alt="Баннер Банки.ру" loading="lazy">
+          <img src="Статические баннеры/Банки ру_NEW.png" alt="Баннер Банки.ру" loading="lazy">
           <div class="banner-label">Банки.ру</div>
         </div>
         <div class="banner-card">
-          <img src="Статические баннеры/фитомаркет.png" alt="Баннер Fitomarket" loading="lazy">
+          <img src="Статические баннеры/Fitomarket_NEW.png" alt="Баннер Fitomarket" loading="lazy">
           <div class="banner-label">Fitomarket</div>
         </div>
         <div class="banner-card">
-          <img src="Статические баннеры/ютека.png" alt="Баннер Ютека" loading="lazy">
+          <img src="Статические баннеры/Ютека_NEW.png" alt="Баннер Ютека" loading="lazy">
           <div class="banner-label">Ютека</div>
         </div>
       </div>
@@ -412,18 +411,18 @@
             <span class="icard-open">Открыть →</span>
           </div>
         </div>
-        <div class="icard reveal" data-src="HTML-баннеры/Самокат.html">
+        <div class="icard reveal" data-src="HTML-баннеры/Самокат_NEW.html">
           <div class="icard-preview">
-            <iframe src="HTML-баннеры/Самокат.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+            <iframe src="HTML-баннеры/Самокат_NEW.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
           </div>
           <div class="icard-footer">
             <span class="icard-title">Самокат</span>
             <span class="icard-open">Открыть →</span>
           </div>
         </div>
-        <div class="icard reveal" data-src="HTML-баннеры/Ситидрайв.html">
+        <div class="icard reveal" data-src="HTML-баннеры/Ситидрайв_NEW.html">
           <div class="icard-preview">
-            <iframe src="HTML-баннеры/Ситидрайв.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+            <iframe src="HTML-баннеры/Ситидрайв_NEW.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
           </div>
           <div class="icard-footer">
             <span class="icard-title">Ситидрайв</span>
