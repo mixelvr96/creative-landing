@@ -261,7 +261,13 @@ videoCards.forEach(card => {
   // Mute button: toggle sound
   muteBtn.addEventListener('click', e => {
     e.stopPropagation();
-    video.muted = !video.muted;
+    if (video.muted) {
+      video.removeAttribute('muted');
+      video.muted = false;
+      video.volume = 1.0;
+    } else {
+      video.muted = true;
+    }
     updateMuteUI();
   });
 });

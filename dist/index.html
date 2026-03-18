@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Зорка – Креатив в перформанс-маркетинге</title>
+  <meta name="description" content="Зорка – агентство перформанс-маркетинга. Создаём креативы, которые работают.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://зорка.рф/creative-service">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://зорка.рф/creative-service">
+  <meta property="og:title" content="Зорка – Креатив в перформанс-маркетинге">
+  <meta property="og:description" content="Зорка – агентство перформанс-маркетинга. Создаём креативы, которые работают.">
+  <meta property="og:image" content="https://зорка.рф/creative-service/showreel-poster.jpg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Зорка">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Зорка – Креатив в перформанс-маркетинге">
+  <meta name="twitter:description" content="Зорка – агентство перформанс-маркетинга. Создаём креативы, которые работают.">
+  <meta name="twitter:image" content="https://зорка.рф/creative-service/showreel-poster.jpg">
+
+  <!-- Google Fonts: Montserrat (headings) + Roboto (body) — как в Zorka.ru -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ======================================================
+       HEADER
+  ====================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="images/logos/Zorka_White_ru.png" alt="Zorka" class="logo-img">
+      </a>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="#ugc">UGC</a></li>
+          <li><a href="#ai">ИИ-креативы</a></li>
+          <li><a href="#motion">Моушен</a></li>
+          <li><a href="#banners">Баннеры</a></li>
+          <li><a href="#interactive">Интерактив</a></li>
+          <li><a href="#cases">Кейсы</a></li>
+          <li><a href="#contact" class="nav-cta">Связаться</a></li>
+        </ul>
+      </nav>
+      <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+      <li><a href="#ugc">UGC</a></li>
+      <li><a href="#ai">ИИ-креативы</a></li>
+      <li><a href="#motion">Моушен</a></li>
+      <li><a href="#banners">Баннеры</a></li>
+      <li><a href="#interactive">Интерактив</a></li>
+      <li><a href="#cases">Кейсы</a></li>
+      <li><a href="#contact" class="mobile-cta">Связаться</a></li>
+    </ul>
+  </div>
+
+  <!-- ======================================================
+       HERO / FIRSTSCREEN
+  ====================================================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <video autoplay muted loop playsinline class="hero-gif" aria-hidden="true"><source src="videos/hero-bg.mp4" type="video/mp4"></video>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="line">Креатив в</span>
+          <span class="line accent-lime">перформанс-</span>
+          <span class="line">маркетинге</span>
+        </h1>
+        <a href="#showreel" class="btn-primary">
+          <span>Смотреть шоурил</span>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="hero-scroll">
+        <span>Листать</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       SHOWREEL
+  ====================================================== -->
+  <section class="showreel-section" id="showreel">
+    <div class="container-wide">
+      <div class="showreel-wrap" id="showreelWrap">
+        <video class="showreel-video" id="showreelVideo"
+               preload="none" playsinline
+               data-src="videos/showreel.mp4"
+               poster="images/showreel-poster.jpg">
+        </video>
+        <div class="showreel-poster" id="showreelPoster">
+          <button class="showreel-play-btn" id="showreelPlayBtn" aria-label="Смотреть Showreel">
+            <div class="play-circle">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <polygon points="9,5 23,14 9,23" fill="currentColor"/>
+              </svg>
+            </div>
+            <span class="showreel-label">Шоурил</span>
+          </button>
+        </div>
+        <div class="showreel-controls" id="showreelControls">
+          <button class="ctrl-btn" id="ctrlPlayPause" aria-label="Воспроизвести / Пауза">
+            <svg class="icon-play" width="18" height="18" viewBox="0 0 18 18"><polygon points="4,2 15,9 4,16" fill="currentColor"/></svg>
+            <svg class="icon-pause" width="18" height="18" viewBox="0 0 18 18" style="display:none"><rect x="3" y="2" width="4" height="14" fill="currentColor"/><rect x="11" y="2" width="4" height="14" fill="currentColor"/></svg>
+          </button>
+          <div class="ctrl-progress" id="ctrlProgress">
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+          <span class="ctrl-time" id="ctrlTime">0:00</span>
+          <button class="ctrl-btn" id="ctrlMute" aria-label="Звук">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M2 6.5v5h3.5l4.5 4V2.5L5.5 6.5H2z" stroke="currentColor" stroke-width="1.4"/>
+              <path class="sound-wave" d="M12 6.5a4 4 0 010 5" stroke="currentColor" stroke-width="1.4" fill="none"/>
+            </svg>
+          </button>
+          <button class="ctrl-btn" id="ctrlFullscreen" aria-label="На весь экран">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M2 6V2h4M12 2h4v4M16 12v4h-4M6 16H2v-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       NAVIGATION COLLAGE
+  ====================================================== -->
+  <section class="nav-collage" id="nav-collage">
+    <div class="container-wide">
+      <div class="nav-grid">
+        <a href="#ugc" class="nav-cell nav-cell--span2" data-accent="yellow">
+          <span class="nav-num">01</span>
+          <div class="nav-cell-body">
+            <h3>Видео с пользовательским опытом</h3>
+          </div>
+          <span class="nav-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="#ai" class="nav-cell" data-accent="lavender">
+          <span class="nav-num">02</span>
+          <div class="nav-cell-body">
+            <h3>ИИ-креативы</h3>
+          </div>
+          <span class="nav-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="#motion" class="nav-cell" data-accent="sky">
+          <span class="nav-num">03</span>
+          <div class="nav-cell-body">
+            <h3>Моушен-креативы</h3>
+          </div>
+          <span class="nav-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="#banners" class="nav-cell" data-accent="lime">
+          <span class="nav-num">04</span>
+          <div class="nav-cell-body">
+            <h3>Баннеры</h3>
+          </div>
+          <span class="nav-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="#interactive" class="nav-cell nav-cell--span2" data-accent="purple">
+          <span class="nav-num">05</span>
+          <div class="nav-cell-body">
+            <h3>Интерактивные креативы</h3>
+          </div>
+          <span class="nav-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="#cases" class="nav-cell" data-accent="peach">
+          <span class="nav-num">06</span>
+          <div class="nav-cell-body">
+            <h3>Кейсы</h3>
+          </div>
+          <span class="nav-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="#info" class="nav-cell" data-accent="mint">
+          <span class="nav-num">07</span>
+          <div class="nav-cell-body">
+            <h3>Индивидуальный подбор решений</h3>
+          </div>
+          <span class="nav-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="#contact" class="nav-cell" data-accent="coral">
+          <span class="nav-num">08</span>
+          <div class="nav-cell-body">
+            <h3>Контакты</h3>
+          </div>
+          <span class="nav-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       UGC VIDEO
+  ====================================================== -->
+  <section class="content-section" id="ugc">
+    <div class="container-wide">
+      <div class="section-header reveal">
+        <span class="section-num">01</span>
+        <div>
+          <h2 class="section-title">Видео с пользовательским опытом</h2>
+          <p class="section-sub">Нативные креативы, которые выглядят как реальный отзыв, но работают как инструмент продаж. Максимум доверия — максимум конверсий.</p>
+        </div>
+      </div>
+      <div class="videos-grid col-4">
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/ugc/banki.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">Банки.ру</div>
+        </div>
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/ugc/mamba.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">Mamba</div>
+        </div>
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/ugc/citydrive.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">Ситидрайв</div>
+        </div>
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/ugc/uteka.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">Ютека</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       AI GENERATION
+  ====================================================== -->
+  <section class="content-section bg-alt" id="ai">
+    <div class="container-wide">
+      <div class="section-header reveal">
+        <span class="section-num">02</span>
+        <div>
+          <h2 class="section-title">ИИ-генерация <em class="accent-lime">креативов</em></h2>
+          <p class="section-sub">Генерация видеокреативов с помощью ИИ для быстрого тестирования и масштабирования. Больше вариаций — быстрее результат.</p>
+        </div>
+      </div>
+      <div class="videos-grid col-4">
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/ai/eduson.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">Eduson Academy</div>
+        </div>
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/ai/pirogi.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">Пироги №1</div>
+        </div>
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/ai/galaxy.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">Galaxy Chat</div>
+        </div>
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/ai/citydrive.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">Ситидрайв</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       MOTION
+  ====================================================== -->
+  <section class="content-section" id="motion">
+    <div class="container-wide">
+      <div class="section-header reveal">
+        <span class="section-num">03</span>
+        <div>
+          <h2 class="section-title">Моушен-<em class="accent-lime">креативы</em></h2>
+          <p class="section-sub">Креативы, которые работают на эмоциях. Больше вовлечения — больше конверсий.</p>
+        </div>
+      </div>
+      <div class="videos-grid col-4">
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/motion/fitomarket.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">Fitomarket</div>
+        </div>
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/motion/pubg.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">PUBG Mobile</div>
+        </div>
+        <div class="video-card vertical reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/motion/stoloto.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">Столото</div>
+        </div>
+        <div class="video-card vertical contained reveal">
+          <video class="vcard-video" preload="none" playsinline muted loop data-src="videos/motion/bankiros.mp4"></video>
+          <div class="vcard-overlay">
+            <button class="vcard-play" aria-label="Воспроизвести">
+              <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="5,2 18,11 5,20" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <div class="vcard-label">Bankiros</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       BANNERS (STATIC)
+  ====================================================== -->
+  <section class="content-section bg-alt" id="banners">
+    <div class="container-wide">
+      <div class="section-header reveal">
+        <span class="section-num">04</span>
+        <div>
+          <h2 class="section-title">Баннеры</h2>
+          <p class="section-sub">Графические креативы, адаптированные под алгоритмы площадок. Максимум читаемости — максимум кликабельности.</p>
+        </div>
+      </div>
+      <div class="banners-grid reveal">
+        <div class="banner-card">
+          <img src="images/banners/eduson.webp" alt="Баннер Eduson Academy" loading="lazy">
+          <div class="banner-label">Eduson Academy</div>
+        </div>
+        <div class="banner-card">
+          <img src="images/banners/banki.webp" alt="Баннер Банки.ру" loading="lazy">
+          <div class="banner-label">Банки.ру</div>
+        </div>
+        <div class="banner-card">
+          <img src="images/banners/fitomarket.webp" alt="Баннер Fitomarket" loading="lazy">
+          <div class="banner-label">Fitomarket</div>
+        </div>
+        <div class="banner-card">
+          <img src="images/banners/uteka.webp" alt="Баннер Ютека" loading="lazy">
+          <div class="banner-label">Ютека</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       INTERACTIVE (HTML BANNERS)
+  ====================================================== -->
+  <section class="content-section" id="interactive">
+    <div class="container-wide">
+      <div class="section-header reveal">
+        <span class="section-num">05</span>
+        <div>
+          <h2 class="section-title">Интерактивные <em class="accent-lime">креативы</em></h2>
+          <p class="section-sub">Формат, который вовлекает до клика. Пользователь взаимодействует с продуктом прямо в рекламе — выше внимание, выше вовлечённость, выше конверсия.</p>
+        </div>
+      </div>
+      <div class="interactive-grid">
+        <div class="icard reveal" data-src="interactive/zolotoiskateli.html">
+          <div class="icard-preview">
+            <iframe src="interactive/zolotoiskateli.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+          </div>
+          <div class="icard-footer">
+            <span class="icard-title">Золотоискатели</span>
+            <span class="icard-open">Открыть →</span>
+          </div>
+        </div>
+        <div class="icard reveal" data-src="interactive/samokat.html">
+          <div class="icard-preview">
+            <iframe src="interactive/samokat.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+          </div>
+          <div class="icard-footer">
+            <span class="icard-title">Самокат</span>
+            <span class="icard-open">Открыть →</span>
+          </div>
+        </div>
+        <div class="icard reveal" data-src="interactive/citydrive.html">
+          <div class="icard-preview">
+            <iframe src="interactive/citydrive.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+          </div>
+          <div class="icard-footer">
+            <span class="icard-title">Ситидрайв</span>
+            <span class="icard-open">Открыть →</span>
+          </div>
+        </div>
+        <div class="icard reveal" data-src="interactive/zolotoiskateli-2.html">
+          <div class="icard-preview">
+            <iframe src="interactive/zolotoiskateli-2.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+          </div>
+          <div class="icard-footer">
+            <span class="icard-title">Золотоискатели</span>
+            <span class="icard-open">Открыть →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Modal -->
+  <div class="banner-modal" id="bannerModal" aria-modal="true" role="dialog" aria-label="Интерактивный баннер">
+    <div class="banner-modal-bg" id="bannerModalBg"></div>
+    <div class="banner-modal-box">
+      <button class="banner-modal-close" id="bannerModalClose" aria-label="Закрыть">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <iframe id="bannerFrame" src="" frameborder="0" allowfullscreen loading="lazy" title="Интерактивный баннер"></iframe>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       CASES
+  ====================================================== -->
+  <section class="content-section bg-alt" id="cases">
+    <div class="container-wide">
+      <div class="section-header reveal">
+        <span class="section-num">06</span>
+        <div>
+          <h2 class="section-title">Кейсы</h2>
+        </div>
+      </div>
+      <!-- Square cards -->
+      <div class="cases-grid">
+
+        <div class="case-card reveal" data-case="1" role="button" tabindex="0" aria-label="Открыть кейс">
+          <div class="case-card-visual" style="background-image:url('images/cases/case-bg.webp')">
+            <span class="case-card-hint">Читать кейс →</span>
+          </div>
+          <div class="case-card-footer">
+            <div>
+              <div class="case-card-client">Крупнейший бьюти-ретейлер РФ</div>
+              <div class="case-card-type">UGC-видео</div>
+            </div>
+            <div class="case-card-kpi accent-lime">ROAS +15%</div>
+          </div>
+        </div>
+
+        <div class="case-card reveal" data-case="2" role="button" tabindex="0" aria-label="Открыть кейс">
+          <div class="case-card-visual" style="background-image:url('images/cases/case-bg.webp')">
+            <span class="case-card-hint">Читать кейс →</span>
+          </div>
+          <div class="case-card-footer">
+            <div>
+              <div class="case-card-client">Ситидрайв</div>
+              <div class="case-card-type">UGC-видео</div>
+            </div>
+            <div class="case-card-kpi accent-yellow">CAC −20%</div>
+          </div>
+        </div>
+
+        <div class="case-card case-card--placeholder reveal">
+          <div class="case-card-visual">
+            <span class="case-card-hint">Скоро</span>
+          </div>
+          <div class="case-card-footer">
+            <div>
+              <div class="case-card-client">Новый кейс</div>
+              <div class="case-card-type">Coming soon</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Hidden case content (used by modal) -->
+  <div id="caseContent1" hidden>
+    <div class="cmodal-header">
+      <div class="cmodal-client">Крупнейший бьюти-ретейлер РФ</div>
+      <div class="cmodal-meta">UGC-видео</div>
+    </div>
+    <div class="cmodal-cols">
+      <div class="case-col">
+        <div class="case-block-title">Задача</div>
+        <p>ROAS на стандартных моушен-креативах был стабильным — задача заключалась не в оптимизации, а в поиске дополнительного роста.</p>
+      </div>
+      <div class="case-col">
+        <div class="case-block-title">Решение</div>
+        <p>Протестировали 6 UGC-концепций. Мы сомневались, что формат «кружочка» будет уместен для крупного бьюти-ретейлера — но он оказался лучшим: нативный формат личного сообщения сработал сильнее брендового продакшена.</p>
+      </div>
+    </div>
+    <div class="case-numbers">
+      <div class="case-num-item"><span class="case-num accent-lime">+15%</span><span>общий ROAS</span></div>
+      <div class="case-num-item"><span class="case-num accent-yellow">+12%</span><span>D1 ROAS</span></div>
+      <div class="case-num-item"><span class="case-num accent-purple">+16%</span><span>D7 ROAS</span></div>
+    </div>
+  </div>
+
+  <div id="caseContent2" hidden>
+    <div class="cmodal-header">
+      <div class="cmodal-client">Ситидрайв</div>
+      <div class="cmodal-meta">UGC-видео</div>
+    </div>
+    <div class="cmodal-cols">
+      <div class="case-col">
+        <div class="case-block-title">Задача</div>
+        <p>Что будет, если заменить классический продакшен на живой UGC? Можно ли снизить CAC, просто изменив формат креатива?</p>
+      </div>
+      <div class="case-col">
+        <div class="case-block-title">Решение</div>
+        <p>Запустили UGC-креативы в формате реального пользовательского опыта и сравнили с классическими по ключевой метрике CAC. Результат говорит сам за себя.</p>
+      </div>
+    </div>
+    <div class="case-numbers">
+      <div class="case-num-item"><span class="case-num accent-yellow">−20%</span><span>CAC</span></div>
+      <div class="case-num-item"><span class="case-num accent-lime">11.55%</span><span>конверсия в поездку</span></div>
+      <div class="case-num-item"><span class="case-num accent-purple">8.02%</span><span>у стандартных</span></div>
+    </div>
+    <div class="case-video-wrap">
+      <button class="case-video-btn" data-src="videos/case-citydrive.mp4">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <polygon points="4,2 15,9 4,16" fill="currentColor"/>
+        </svg>
+        Смотреть видео
+      </button>
+    </div>
+  </div>
+
+  <!-- Case Modal -->
+  <div class="case-modal" id="caseModal" aria-modal="true" role="dialog" aria-label="Кейс">
+    <div class="case-modal-bg" id="caseModalBg"></div>
+    <div class="case-modal-box">
+      <button class="case-modal-close" id="caseModalClose" aria-label="Закрыть">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="case-modal-inner" id="caseModalInner"></div>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       STATS
+  ====================================================== -->
+  <section class="stats-section">
+    <div class="container-wide">
+      <h2 class="stats-heading reveal">Производительность <em class="accent-lime">в цифрах</em></h2>
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-val" data-val="3.2" data-prefix="×">×3.2</div>
+          <p class="stat-desc">средний рост коэффициента кликабельности. Наши креативы работают эффективнее индустриальных бенчмарков</p>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-val" data-val="500" data-suffix="+">500+</div>
+          <p class="stat-desc">креативов в месяц. Масштабируем производство без потери в качестве. ИИ и оптимизированные процессы позволяют делать больше</p>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-val" data-val="89" data-suffix="%">89%</div>
+          <p class="stat-desc">увеличение конверсии. Клиенты видят в среднем 89% рост конверсии после перехода на наши креативные решения</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       INFO
+  ====================================================== -->
+  <section class="content-section bg-alt" id="info">
+    <div class="container-wide">
+      <div class="section-header reveal">
+        <span class="section-num">07</span>
+        <div>
+          <h2 class="section-title">Индивидуальный подбор решений</h2>
+        </div>
+      </div>
+      <div class="info-grid">
+        <a href="https://docs.google.com/document/d/1yjmK9IatCL_pb3zNvyEzR0H9eKSCqO_ksa18-fEzBfc/edit?tab=t.0#heading=h.2mcubw1szlb5"
+           target="_blank" rel="noopener noreferrer" class="info-card reveal">
+          <div class="info-card-icon">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+              <rect x="5" y="3" width="20" height="24" rx="2" stroke="currentColor" stroke-width="1.4" fill="none"/>
+              <path d="M9 9h12M9 14h12M9 19h8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="info-card-text">
+            <div class="info-card-title">Регламент работы</div>
+            <div class="info-card-desc">Порядок работы с клиентом в&nbsp;креативной части перформанс-маркетинга</div>
+          </div>
+          <span class="info-card-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/1X49Mb-0tsY2L1GwPEImqj8PXXNtCUoHm/edit?usp=sharing&ouid=111019508921983476773&rtpof=true&sd=true"
+           target="_blank" rel="noopener noreferrer" class="info-card reveal">
+          <div class="info-card-icon">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+              <rect x="5" y="3" width="20" height="24" rx="2" stroke="currentColor" stroke-width="1.4" fill="none"/>
+              <path d="M5 9h20M5 15h20M5 21h20M12 3v24M18 3v24" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <div class="info-card-text">
+            <div class="info-card-title">Прайс-лист</div>
+            <div class="info-card-desc">Актуальные цены на&nbsp;все форматы рекламных креативов</div>
+          </div>
+          <span class="info-card-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       CONTACT FORM
+  ====================================================== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="contact-left reveal">
+          <span class="section-num">08</span>
+          <h2 class="contact-title">Начнём <em class="accent-lime">работать</em> вместе?</h2>
+          <p class="contact-desc">Расскажите о своих задачах — мы предложим решение, которое работает на результат.</p>
+          <a href="mailto:info@zorka.agency" class="contact-email">info@zorka.agency</a>
+        </div>
+        <div class="contact-right reveal">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Имя <span class="req">*</span></label>
+                <input type="text" id="fname" name="firstname" placeholder="Ваше имя" autocomplete="given-name" required>
+              </div>
+              <div class="form-group">
+                <label for="fcompany">Компания <span class="req">*</span></label>
+                <input type="text" id="fcompany" name="company" placeholder="Название компании" autocomplete="organization" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="femail">Email <span class="req">*</span></label>
+              <input type="email" id="femail" name="email" placeholder="your@email.com" autocomplete="email" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fsource">Как вы о нас узнали <span class="req">*</span></label>
+                <div class="select-wrap">
+                  <select id="fsource" name="how_did_you_hear" required>
+                    <option value="">Выберите вариант</option>
+                    <option value="Social Networks">Из социальных сетей</option>
+                    <option value="Web Search">По поиску в интернете</option>
+                    <option value="Word of Mouth">По рекомендации</option>
+                    <option value="Online Advertising">Попалась ваша реклама</option>
+                    <option value="Conference">Встречались на конференции</option>
+                    <option value="Media Sources">Из рейтингов или статей</option>
+                  </select>
+                  <svg class="sel-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="fbiztype">Тип бизнеса <span class="req">*</span></label>
+                <div class="select-wrap">
+                  <select id="fbiztype" name="business_type" required>
+                    <option value="">Выберите вариант</option>
+                    <option value="Brand/Direct Advertiser">Бренд / Прямой рекламодатель</option>
+                    <option value="Agency/Network">Агентство / Источник трафика</option>
+                    <option value="Others">Другое</option>
+                  </select>
+                  <svg class="sel-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fbudget">Рекламный бюджет <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="fbudget" name="ad_budget" required>
+                  <option value="">Выберите диапазон</option>
+                  <option value="$1,000 – $15,000">100 000 — 1 000 000 ₽</option>
+                  <option value="$15,000 – $50,000">1 000 000 — 5 000 000 ₽</option>
+                  <option value="$50,000 – $100,000">5 000 000 — 10 000 000 ₽</option>
+                  <option value="$100,000+">10 000 000+ ₽</option>
+                </select>
+                <svg class="sel-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fgoals">Стратегические цели и планы <span class="req">*</span></label>
+              <textarea id="fgoals" name="strategic_goals" rows="4" placeholder="Расскажите о ваших стратегических целях и планах..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <span class="btn-text">Отправить заявку</span>
+              <span class="btn-loading" aria-live="polite" style="display:none">Отправляем…</span>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <p class="form-consent">Нажимая на&nbsp;кнопку «Отправить заявку», вы&nbsp;даёте <a href="https://зорка.рф/consent" target="_blank" rel="noopener noreferrer">Согласие на&nbsp;обработку персональных данных</a> и&nbsp;принимаете <a href="https://зорка.рф/privacy" target="_blank" rel="noopener noreferrer">Политику конфиденциальности</a>.</p>
+            <div class="form-msg form-success" id="formSuccess" style="display:none" role="alert">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l5 5 8-8" stroke="#D1F453" stroke-width="2" stroke-linecap="round"/></svg>
+              Заявка отправлена! Мы свяжемся с вами в ближайшее время.
+            </div>
+            <div class="form-msg form-error" id="formError" style="display:none" role="alert">
+              Ошибка отправки. Напишите нам на <a href="mailto:info@zorka.agency">info@zorka.agency</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-top">
+        <a href="#" class="footer-logo">
+          <img src="images/logos/Zorka_White_ru.png" alt="Zorka" width="140" alt="Zorka">
+        </a>
+        <a href="mailto:info@zorka.agency" class="footer-email">info@zorka.agency</a>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">
+          ООО «Эдстрим Диджитал» &nbsp;·&nbsp;
+          109004, Россия, г.&nbsp;Москва, пер.&nbsp;Николоямский, д.&nbsp;4-6, стр.&nbsp;3, помещ.&nbsp;2Н
+          &nbsp;·&nbsp; ИНН&nbsp;7714963521 / КПП&nbsp;770901001 &nbsp;·&nbsp; ОГРН&nbsp;5167746427240
+        </p>
+        <p class="footer-copy">© 2026 Зорка</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

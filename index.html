@@ -25,11 +25,10 @@
   <meta name="twitter:description" content="Зорка – агентство перформанс-маркетинга. Создаём креативы, которые работают.">
   <meta name="twitter:image" content="https://зорка.рф/creative-service/showreel-poster.jpg">
 
-  <!-- Google Fonts: Space Grotesk (замена Right Grotesk) + Roboto -->
-  <!-- Для подключения Right Grotesk: добавьте @font-face в styles.css с файлами шрифта -->
+  <!-- Google Fonts: Montserrat (headings) + Roboto (body) — как в Zorka.ru -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -69,7 +68,7 @@
       <li><a href="#banners">Баннеры</a></li>
       <li><a href="#interactive">Интерактив</a></li>
       <li><a href="#cases">Кейсы</a></li>
-      <li><a href="#contact">Связаться</a></li>
+      <li><a href="#contact" class="mobile-cta">Связаться</a></li>
     </ul>
   </div>
 
@@ -163,21 +162,21 @@
           </div>
           <span class="nav-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="#ai" class="nav-cell" data-accent="purple">
+        <a href="#ai" class="nav-cell" data-accent="lavender">
           <span class="nav-num">02</span>
           <div class="nav-cell-body">
             <h3>ИИ-креативы</h3>
           </div>
           <span class="nav-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="#motion" class="nav-cell" data-accent="lime">
+        <a href="#motion" class="nav-cell" data-accent="sky">
           <span class="nav-num">03</span>
           <div class="nav-cell-body">
             <h3>Моушен-креативы</h3>
           </div>
           <span class="nav-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="#banners" class="nav-cell" data-accent="yellow">
+        <a href="#banners" class="nav-cell" data-accent="lime">
           <span class="nav-num">04</span>
           <div class="nav-cell-body">
             <h3>Баннеры</h3>
@@ -191,21 +190,21 @@
           </div>
           <span class="nav-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="#cases" class="nav-cell" data-accent="lime">
+        <a href="#cases" class="nav-cell" data-accent="peach">
           <span class="nav-num">06</span>
           <div class="nav-cell-body">
             <h3>Кейсы</h3>
           </div>
           <span class="nav-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="#info" class="nav-cell" data-accent="yellow">
+        <a href="#info" class="nav-cell" data-accent="mint">
           <span class="nav-num">07</span>
           <div class="nav-cell-body">
             <h3>Индивидуальный подбор решений</h3>
           </div>
           <span class="nav-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="#contact" class="nav-cell" data-accent="purple">
+        <a href="#contact" class="nav-cell" data-accent="coral">
           <span class="nav-num">08</span>
           <div class="nav-cell-body">
             <h3>Контакты</h3>
@@ -514,6 +513,18 @@
           </div>
         </div>
 
+        <div class="case-card case-card--placeholder reveal">
+          <div class="case-card-visual">
+            <span class="case-card-hint">Скоро</span>
+          </div>
+          <div class="case-card-footer">
+            <div>
+              <div class="case-card-client">Новый кейс</div>
+              <div class="case-card-type">Coming soon</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -738,6 +749,7 @@
                 <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
+            <p class="form-consent">Нажимая на&nbsp;кнопку «Отправить заявку», вы&nbsp;даёте <a href="https://зорка.рф/consent" target="_blank" rel="noopener noreferrer">Согласие на&nbsp;обработку персональных данных</a> и&nbsp;принимаете <a href="https://зорка.рф/privacy" target="_blank" rel="noopener noreferrer">Политику конфиденциальности</a>.</p>
             <div class="form-msg form-success" id="formSuccess" style="display:none" role="alert">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l5 5 8-8" stroke="#D1F453" stroke-width="2" stroke-linecap="round"/></svg>
               Заявка отправлена! Мы свяжемся с вами в ближайшее время.
