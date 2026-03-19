@@ -822,6 +822,8 @@ textarea { resize: vertical; min-height: 110px; }
    ------------------------------------------------------------ */
 @media (max-width: 480px) {
   h1 { font-size: 2.8rem; }
+  h2 { font-size: 1.75rem; }
+  .stats-heading { word-break: break-word; }
   .nav-grid { grid-template-columns: 1fr; }
   .nav-cell { min-height: 120px; padding: 22px 22px 18px; }
   .btn-primary { width: 100%; justify-content: center; }
