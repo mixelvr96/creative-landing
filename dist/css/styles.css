@@ -897,15 +897,13 @@ textarea { resize: vertical; min-height: 110px; }
   /* Case cards in slider */
   .cases-grid {
     max-width: none;
+    margin: 0;
     padding: 0 0 8px 0;
-    margin: 0 -16px;
     scroll-snap-type: x mandatory;
   }
   .cases-grid::before, .cases-grid::after { display: none; }
   .cases-grid .case-card {
-    flex: 0 0 78vw;
+    flex: 0 0 calc(100% - 32px);
     scroll-snap-align: start;
   }
-  .cases-grid .case-card:first-child { margin-left: 20px; }
-  .cases-grid .case-card:last-child  { margin-right: 20px; }
 }
