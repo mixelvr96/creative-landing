@@ -498,14 +498,6 @@ contactForm.addEventListener('submit', async e => {
   formSuccess.style.display = 'none';
   formError.style.display   = 'none';
 
-  /* ----------------------------------------------------------------
-     HubSpot Forms API
-     Replace PORTAL_ID and FORM_ID after creating the form in HubSpot.
-     Field names must match HubSpot internal property names.
-     ---------------------------------------------------------------- */
-  const PORTAL_ID = '5289299';
-  const FORM_ID   = '6e6fcdee-bbe1-4fc0-841a-04f1fa4700ba';
-
   const fd = new FormData(contactForm);
   const fields = [];
 
@@ -524,25 +516,20 @@ contactForm.addEventListener('submit', async e => {
       fields.push({ name: mapping[key], value });
     }
   }
-  fields.push({ name: 'service_requested', value: 'Creative & Production' });
+  fields.push({ name: 'service_requested', value: 'Creative & Production (лендинг)' });
 
   const payload = {
     fields,
-    context: {
-      pageUri: window.location.href,
-      pageName: document.title,
-    },
+    pageUri:  window.location.href,
+    pageName: document.title,
   };
 
   try {
-    const res = await fetch(
-      `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_ID}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      }
-    );
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
 
     if (res.ok) {
       contactForm.reset();
