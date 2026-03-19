@@ -903,7 +903,7 @@ textarea { resize: vertical; min-height: 110px; }
   }
   .cases-grid::before, .cases-grid::after { display: none; }
   .cases-grid .case-card {
-    flex: 0 0 calc(100% - 32px);
+    flex: 0 0 72vw;
     scroll-snap-align: start;
   }
 }
