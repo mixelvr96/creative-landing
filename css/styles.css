@@ -531,11 +531,10 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 600; }
 .case-card--placeholder { cursor: default; border-style: dashed; border-color: rgba(255,255,255,0.08); }
 .case-card--placeholder:hover { transform: none; border-color: rgba(255,255,255,0.12); }
 .case-card--placeholder .case-card-visual {
-  background: linear-gradient(135deg, #181820 0%, #1e1e2a 100%);
-  display: flex; align-items: center; justify-content: center;
+  background-color: #181820;
 }
 .case-card--placeholder .case-card-hint {
-  position: static; opacity: 0.4; font-size: 14px; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase;
+  display: none;
 }
 .case-card--placeholder .case-card-client { color: var(--text-muted); }
 .case-card--placeholder .case-card-type { color: var(--text-muted); opacity: 0.5; }
@@ -543,7 +542,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 600; }
   aspect-ratio: 1;
   position: relative; overflow: hidden;
   background: #010101;
-  background-size: 70%; background-position: center; background-repeat: no-repeat;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
 }
 .case-card-visual--plain {
   background: linear-gradient(135deg, #1c1c1c 0%, #272727 100%);
